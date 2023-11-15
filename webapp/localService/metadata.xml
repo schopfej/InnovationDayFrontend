@@ -18,7 +18,6 @@
                 <EntitySet Name="Presentations" EntityType="NIDService.Presentations">
                     <NavigationPropertyBinding Path="participants" Target="ParticipantToPresentation"/>
                 </EntitySet>
-                <EntitySet Name="Timeslot" EntityType="NIDService.Timeslot"/>
                 <EntitySet Name="ParticipantToPresentation" EntityType="NIDService.ParticipantToPresentation">
                     <NavigationPropertyBinding Path="participant" Target="Participants"/>
                     <NavigationPropertyBinding Path="presentation" Target="Presentations"/>
@@ -28,7 +27,7 @@
                 <Key>
                     <PropertyRef Name="participantId"/>
                 </Key>
-                <Property Name="participantId" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="participantId" Type="Edm.String" Nullable="false"/>
                 <Property Name="firstName" Type="Edm.String"/>
                 <Property Name="lastName" Type="Edm.String"/>
                 <Property Name="function" Type="Edm.String"/>
@@ -54,13 +53,6 @@
                     <OnDelete Action="Cascade"/>
                 </NavigationProperty>
             </EntityType>
-            <EntityType Name="Timeslot">
-                <Key>
-                    <PropertyRef Name="timeslotId"/>
-                </Key>
-                <Property Name="timeslotId" Type="Edm.String" Nullable="false"/>
-                <Property Name="timeslotDesc" Type="Edm.String"/>
-            </EntityType>
             <EntityType Name="ParticipantToPresentation">
                 <Key>
                     <PropertyRef Name="participant_participantId"/>
@@ -69,7 +61,7 @@
                 <NavigationProperty Name="participant" Type="NIDService.Participants" Partner="presentations">
                     <ReferentialConstraint Property="participant_participantId" ReferencedProperty="participantId"/>
                 </NavigationProperty>
-                <Property Name="participant_participantId" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="participant_participantId" Type="Edm.String" Nullable="false"/>
                 <NavigationProperty Name="presentation" Type="NIDService.Presentations" Partner="participants">
                     <ReferentialConstraint Property="presentation_presentationId" ReferencedProperty="presentationId"/>
                 </NavigationProperty>
@@ -109,7 +101,7 @@
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="NIDService.EntityContainer/Timeslot">
+            <Annotations Target="NIDService.EntityContainer/ParticipantToPresentation">
                 <Annotation Term="Capabilities.DeleteRestrictions">
                     <Record Type="Capabilities.DeleteRestrictionsType">
                         <PropertyValue Property="Deletable" Bool="false"/>
