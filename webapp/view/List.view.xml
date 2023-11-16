@@ -16,7 +16,7 @@
 
 			layout="ResponsiveGridLayout"
 
-			title="E-Mail Adresse"
+			title="{i18n>titleNovoInnovationDay}"
 
 			labelSpanXL="3"
 
@@ -44,14 +44,18 @@
 
 			singleContainerFullSize="false" >
 
-			<f:content>
+				<l:VerticalLayout class="sapUiSmallMarginBeginEnd sapUiLargeMarginBegin" width="50%" >
+									
+								
+				
 
-				<Label text="E-Mail" />
+				<Input id="inputMail" width="50%" placeholder="{i18n>inputEmail}" />
+				<Button press="onPressGo" text="{i18n>buttonAnmelden}" />
+				
 
-				<Input id="inputMail" />
-				<Button press="onPressGo" text="Ausführen" />
-
-			</f:content>
+								
+							</l:VerticalLayout>
+							
 
 		</f:SimpleForm>
 			</content>

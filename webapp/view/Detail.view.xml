@@ -6,7 +6,7 @@
     xmlns:core="sap.ui.core"
     xmlns:forms="sap.ui.layout.form"
     xmlns:uxap="sap.uxap"
-    xmlns:blockcolor="sap.uxap.sample.SharedBlocks"
+    xmlns:f="sap.f"
 >
     <Page
         id="detail"
@@ -29,6 +29,10 @@
                 <ObjectAttribute
                     id="_IDGenObjectAttribute3"
                     text="{participantId}"
+                />
+                  <ObjectAttribute
+                    id="_IDGenObjectAttribute4"
+                    text="{organisation}"
                 />
             </attributes>
         </ObjectHeader>
@@ -60,12 +64,35 @@
                                     layout="ResponsiveGridLayout"
                                     width="100%"
                                 >
-                                    <core:Title text="Allgemeine Information" />
-                                    <Label text="Zimmer" />
-                                    <Text text="101" />
+                                    <core:Title
+                                        text="{i18n>objectPageReferat}"
+                                    />
+                                    <Label text="{i18n>objectPageName}" />
+                                    <Text text="{presentation/referee/name}" />
+                                    <Label text="{i18n>objectPageBiographie}" />
+                                    <Text text="{presentation/referee/bio}" />
 
-                                    <Label text="Zeit" />
+                                   
+
+                                   
+
+                                    <core:Title
+                                        text="{i18n>objectPageAllgInformation}"
+                                    />
+                                    <Label text="{i18n>objectPageZeit}" />
                                     <Text text="{presentation/timeslot}" />
+                                  
+
+                                     <Label text="{i18n>objectPageZimmer}" />
+                                    <Text text="{presentation/room/name}" />
+
+                                     <Label text="{i18n>objectPageRoomBeschreibung}" />
+                                    <Text text="{presentation/room/description}" />
+
+                                     <Label text="{i18n>objectPageLocation}" />
+                                    <Text text="{presentation/room/location}" />
+
+                                   
                                 </forms:SimpleForm>
                             </content>
                         </Panel>
@@ -73,6 +100,66 @@
                 </ColumnListItem>
             </items>
         </Table>
+
+
+
+         <Table >
+            <columns>
+                <Column width="12em">
+                    <Text text="{i18n>objectPageInformationLageplan}" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <Panel
+                            expandable="true"
+                            expanded="true"
+                            width="auto"
+                            class="sapUiResponsiveMargin"
+                        >
+                            <content>
+                                <forms:SimpleForm
+                                    labelSpanL="4"
+                                    labelSpanM="4"
+                                    editable="false"
+                                    labelSpanS="4"
+                                    emptySpanL="0"
+                                    emptySpanM="0"
+                                    emptySpanS="0"
+                                    maxContainerCols="2"
+                                    layout="ResponsiveGridLayout"
+                                    width="100%"
+                                >
+                                    
+                                    
+                                   
+                                <FlexBox height="100px" alignItems="Center" justifyContent="Center">
+
+<items>
+
+<Image src="/Image/wankdorf.png"> </Image>
+
+</items>
+
+</FlexBox>
+                                   
+
+                                   
+
+                                   
+                                </forms:SimpleForm>
+                            </content>
+                        </Panel>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+
+        
+
+
 
         <footer>
             <Bar id="_IDGenBar1">
